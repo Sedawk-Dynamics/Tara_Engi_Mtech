@@ -1,0 +1,142 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* TEM Brand Colors */
+  --color-brand-blue: #145795;
+  --color-brand-blue-dark: #0e3f6e;
+  --color-brand-blue-light: #1a6ab5;
+  --color-brand-graphite: #586670;
+  --color-brand-graphite-dark: #3d4850;
+  --color-brand-steel: #8da0ad;
+  --color-brand-bg: #F5F7F9;
+  --color-brand-border: #DDE3E8;
+
+  --font-sans: var(--font-inter), 'Inter', sans-serif;
+  --font-display: var(--font-barlow), 'Barlow', sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  --background: #F5F7F9;
+  --foreground: #1a2332;
+  --card: #ffffff;
+  --card-foreground: #1a2332;
+  --popover: #ffffff;
+  --popover-foreground: #1a2332;
+  --primary: #145795;
+  --primary-foreground: #ffffff;
+  --secondary: #DDE3E8;
+  --secondary-foreground: #586670;
+  --muted: #eef1f4;
+  --muted-foreground: #586670;
+  --accent: #145795;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #DDE3E8;
+  --input: #DDE3E8;
+  --ring: #145795;
+  --radius: 0.5rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a2332;
+  --sidebar-primary: #145795;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #F5F7F9;
+  --sidebar-accent-foreground: #1a2332;
+  --sidebar-border: #DDE3E8;
+  --sidebar-ring: #145795;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Blueprint grid pattern */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(20, 87, 149, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 87, 149, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Engineering dot grid */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(20, 87, 149, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Fluid line animation */
+@keyframes fluid-flow {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.fluid-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: fluid-flow 3s ease-out forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F5F7F9; }
+::-webkit-scrollbar-thumb { background: #145795; border-radius: 3px; }
+
+/* Section transitions */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Counter animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
