@@ -15,7 +15,7 @@ type ProductCategory = {
 }
 
 const productCategories: ProductCategory[] = [
-  { name: 'Rotary Gear Pumps', models: ['JRG', 'JRG/SS', 'JIG', 'JRN/JRB', 'JRMS/JRM', 'JRX', 'JRMP', 'JBX/JNX'], href: '#products' },
+  { name: 'Rotary Gear Pumps', models: ['TERG', 'TERG/SS', 'TEIG', 'TERN/TERB', 'TERMS/TERM', 'TERX', 'TERMP', 'TEBX/TENX'], href: '#products' },
   {
     name: 'Coolant Pumps',
     models: ['TE/RG Single Stage', 'TE/RG Multi Stage', 'TE/MC Multi Stage'],
@@ -26,9 +26,9 @@ const productCategories: ProductCategory[] = [
       'TE/MC Multi Stage': '/coolant-pumps/te-mc-multi-stage',
     } as Record<string, string>,
   },
-  { name: 'Centrifugal Process Pumps', models: ['JCP', 'JSOP', 'JSP', 'JFP', 'JSPP', 'JSMP', 'JHMP'], href: '/centrifugal-process-pumps' },
-  { name: 'High-Pressure Pumps', models: ['JSMP', 'JHMP'], href: '/centrifugal-process-pumps#jsmp' },
-  { name: 'Slurry & Self-Priming', models: ['JSP', 'JSOP'], href: '/centrifugal-process-pumps#jsop' },
+  { name: 'Centrifugal Process Pumps', models: ['TECP', 'TESOP', 'TESP', 'TEFP', 'TESPP', 'TESMP', 'TEHMP'], href: '/centrifugal-process-pumps' },
+  { name: 'High-Pressure Pumps', models: ['TESMP', 'TEHMP'], href: '/centrifugal-process-pumps#tesmp' },
+  { name: 'Slurry & Self-Priming', models: ['TESP', 'TESOP'], href: '/centrifugal-process-pumps#tesop' },
   { name: 'Custom Engineering', models: ['OEM DESIGNS', 'SPECIAL SERIES', 'APPLICATION BUILD'], href: '#contact' },
 ]
 

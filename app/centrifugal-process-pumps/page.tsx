@@ -27,13 +27,13 @@ import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 const pumps = [
   {
-    id: 'jcp',
-    model: 'JCP',
+    id: 'tecp',
+    model: 'TECP',
     name: 'Centrifugal Process Pump',
     tagline: 'Standard horizontal end-suction for general industrial service',
-    image: '/images/pump-jcp.png',
+    image: '/images/pump-tecp.png',
     description:
-      'The JCP series is a robust horizontal end-suction centrifugal pump engineered for demanding industrial process applications. Its back pull-out design allows complete maintenance without disturbing piping, reducing downtime significantly.',
+      'The TECP series is a robust horizontal end-suction centrifugal pump engineered for demanding industrial process applications. Its back pull-out design allows complete maintenance without disturbing piping, reducing downtime significantly.',
     applications: [
       'Water & wastewater treatment',
       'Chemical processing',
@@ -65,13 +65,13 @@ const pumps = [
     badgeColor: '#145795',
   },
   {
-    id: 'jsop',
-    model: 'JSOP',
+    id: 'tesop',
+    model: 'TESOP',
     name: 'Self-Priming Open Face Pump',
     tagline: 'Reliable self-priming for solids-handling & difficult suction conditions',
-    image: '/images/pump-jsop.png',
+    image: '/images/pump-tesop.png',
     description:
-      'The JSOP series is a self-priming centrifugal pump designed to handle liquids containing solids, air, or gas. Its open-face impeller design ensures trouble-free operation even in challenging suction conditions without an external priming system.',
+      'The TESOP series is a self-priming centrifugal pump designed to handle liquids containing solids, air, or gas. Its open-face impeller design ensures trouble-free operation even in challenging suction conditions without an external priming system.',
     applications: [
       'Sewage & effluent handling',
       'Sump & pit drainage',
@@ -103,13 +103,13 @@ const pumps = [
     badgeColor: null,
   },
   {
-    id: 'jsp',
-    model: 'JSP',
+    id: 'tesp',
+    model: 'TESP',
     name: 'Slurry Process Pump',
     tagline: 'Heavy-duty wear-resistant design for abrasive slurry service',
-    image: '/images/pump-jsp.png',
+    image: '/images/pump-tesp.png',
     description:
-      'The JSP series is specifically engineered for continuous pumping of highly abrasive and corrosive slurries. Reinforced wear-resistant liners and heavy-duty impellers extend service life dramatically in the harshest environments.',
+      'The TESP series is specifically engineered for continuous pumping of highly abrasive and corrosive slurries. Reinforced wear-resistant liners and heavy-duty impellers extend service life dramatically in the harshest environments.',
     applications: [
       'Mining & mineral processing',
       'Ash handling in power plants',
@@ -141,13 +141,13 @@ const pumps = [
     badgeColor: '#586670',
   },
   {
-    id: 'jfp',
-    model: 'JFP',
+    id: 'tefp',
+    model: 'TEFP',
     name: 'Flanged Process Pump',
     tagline: 'Chemical-grade flanged pump for corrosive & high-temperature media',
-    image: '/images/pump-jfp.png',
+    image: '/images/pump-tefp.png',
     description:
-      'The JFP series is a heavy-duty flanged centrifugal process pump designed for corrosive chemical and petrochemical service. Its rigid construction, precision-ground flanges, and comprehensive material options make it ideal for API 610 applications.',
+      'The TEFP series is a heavy-duty flanged centrifugal process pump designed for corrosive chemical and petrochemical service. Its rigid construction, precision-ground flanges, and comprehensive material options make it ideal for API 610 applications.',
     applications: [
       'Petrochemical refining',
       'Acid & alkali transfer',
@@ -179,13 +179,13 @@ const pumps = [
     badgeColor: '#145795',
   },
   {
-    id: 'jspp',
-    model: 'JSPP',
+    id: 'tespp',
+    model: 'TESPP',
     name: 'Split-Casing Process Pump',
     tagline: 'High-flow double-suction split case for large-volume transfer',
-    image: '/images/pump-jspp.png',
+    image: '/images/pump-tespp.png',
     description:
-      'The JSPP series features a double-suction, axially split casing design that delivers exceptional hydraulic efficiency and balanced axial thrust. Its split-case configuration enables inspection and maintenance of all internal components without disconnecting pipework.',
+      'The TESPP series features a double-suction, axially split casing design that delivers exceptional hydraulic efficiency and balanced axial thrust. Its split-case configuration enables inspection and maintenance of all internal components without disconnecting pipework.',
     applications: [
       'Municipal water supply',
       'Large HVAC systems',
@@ -217,13 +217,13 @@ const pumps = [
     badgeColor: '#145795',
   },
   {
-    id: 'jsmp',
-    model: 'JSMP',
+    id: 'tesmp',
+    model: 'TESMP',
     name: 'Multistage Process Pump',
     tagline: 'Multistage centrifugal for high-pressure boiler feed & transfer service',
-    image: '/images/pump-jsmp.png',
+    image: '/images/pump-tesmp.png',
     description:
-      'The JSMP series is a horizontal multistage centrifugal pump delivering high head at moderate flow rates. Multiple impeller stages in series build pressure incrementally, making it the preferred choice for boiler feed, reverse osmosis, and high-pressure injection duties.',
+      'The TESMP series is a horizontal multistage centrifugal pump delivering high head at moderate flow rates. Multiple impeller stages in series build pressure incrementally, making it the preferred choice for boiler feed, reverse osmosis, and high-pressure injection duties.',
     applications: [
       'Boiler feed water',
       'Reverse osmosis & membrane systems',
@@ -255,13 +255,13 @@ const pumps = [
     badgeColor: null,
   },
   {
-    id: 'jhmp',
-    model: 'JHMP',
+    id: 'tehmp',
+    model: 'TEHMP',
     name: 'High-Pressure Multistage Pump',
     tagline: 'Ultra-high-pressure multistage for the most demanding service',
-    image: '/images/pump-jhmp.png',
+    image: '/images/pump-tehmp.png',
     description:
-      'The JHMP series represents the pinnacle of our centrifugal pump engineering — an ultra-high-pressure multistage pump designed for critical service where reliability is non-negotiable. Manufactured to exacting tolerances with premium alloys for extreme-pressure injection and high-head duties.',
+      'The TEHMP series represents the pinnacle of our centrifugal pump engineering — an ultra-high-pressure multistage pump designed for critical service where reliability is non-negotiable. Manufactured to exacting tolerances with premium alloys for extreme-pressure injection and high-head duties.',
     applications: [
       'High-pressure water injection (oil & gas)',
       'Descaling in steel mills',
@@ -585,8 +585,8 @@ export default function CentrifugalProcessPumpsPage() {
                 <span className="text-[#5aadff]">Process Pumps</span>
               </h1>
               <p className="text-lg text-white/70 max-w-xl leading-relaxed mb-8">
-                Seven precision-engineered centrifugal pump series — from general-duty JCP to
-                ultra-high-pressure JHMP — designed and manufactured in India for global industrial
+                Seven precision-engineered centrifugal pump series — from general-duty TECP to
+                ultra-high-pressure TEHMP — designed and manufactured in India for global industrial
                 applications.
               </p>
 
@@ -656,7 +656,7 @@ export default function CentrifugalProcessPumpsPage() {
                 <p className="text-[#586670] leading-relaxed mb-4">
                   TARA ENGIMECH&apos;s Centrifugal Process Pump range spans seven distinct series — each
                   purpose-designed for a specific set of process conditions. From the general-service
-                  JCP to the ultra-high-pressure JHMP, every series is manufactured to tight
+                  TECP to the ultra-high-pressure TEHMP, every series is manufactured to tight
                   dimensional tolerances using premium materials and verified on our in-house test rig
                   before despatch.
                 </p>
