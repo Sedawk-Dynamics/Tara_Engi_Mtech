@@ -15,7 +15,21 @@ type ProductCategory = {
 }
 
 const productCategories: ProductCategory[] = [
-  { name: 'Rotary Gear Pumps', models: ['TERG', 'TERG/SS', 'TEIG', 'TERN/TERB', 'TERMS/TERM', 'TERX', 'TERMP', 'TEBX/TENX'], href: '#products' },
+  {
+    name: 'Rotary Gear Pumps',
+    models: ['TERG', 'TERG/SS', 'TEIG', 'TERN/TERB', 'TERMS/TERM', 'TERX', 'TERMP', 'TEBX/TENX'],
+    href: '/rotary-gear-pumps',
+    modelLinks: {
+      TERG: '/rotary-gear-pumps/terg',
+      'TERG/SS': '/rotary-gear-pumps/terg-ss',
+      TEIG: '/rotary-gear-pumps/teig',
+      'TERN/TERB': '/rotary-gear-pumps/tern-terb',
+      'TERMS/TERM': '/rotary-gear-pumps/terms-term',
+      TERX: '/rotary-gear-pumps/terx',
+      TERMP: '/rotary-gear-pumps/termp',
+      'TEBX/TENX': '/rotary-gear-pumps/tebx-tenx',
+    },
+  },
   {
     name: 'Coolant Pumps',
     models: ['TE/RG Single Stage', 'TE/RG Multi Stage', 'TE/MC Multi Stage'],

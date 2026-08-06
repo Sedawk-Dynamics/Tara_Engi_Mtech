@@ -9,39 +9,26 @@ import {
   ArrowRight,
   MessageCircle,
   CheckCircle2,
+  Mail,
   Shield,
   Settings,
   Gauge,
   Droplets,
-  Mail,
+  Flame,
 } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
-import { coolantPumps, COOLANT_APPLICATIONS } from '@/lib/coolant-pumps'
+import type { ProductCategory, IconName } from '@/lib/product-types'
 
-const whyPoints = [
-  {
-    icon: Shield,
-    title: 'Seal-Less Where It Counts',
-    desc: 'Our single-stage wet ends carry no shaft seal at all — the single most common coolant-pump failure point is simply designed out.',
-  },
-  {
-    icon: Settings,
-    title: 'Built to Your Tank',
-    desc: 'Column length, outlet size and material are made to order, so the pump matches your machine instead of the other way round.',
-  },
-  {
-    icon: Gauge,
-    title: 'Verified Performance',
-    desc: 'Every published duty point comes off our calibrated test rig — the head you specify is the head you get on the shop floor.',
-  },
-  {
-    icon: Droplets,
-    title: 'Any Coolant, Any Chemistry',
-    desc: 'Cast iron through to SS 316, Bronze, Alloy-20 and PP — for water, emulsion, neat cutting oil or aggressive wash solutions.',
-  },
-]
+/** Resolves the serializable icon names carried in the category data. */
+const ICONS: Record<IconName, typeof Shield> = {
+  shield: Shield,
+  settings: Settings,
+  gauge: Gauge,
+  droplets: Droplets,
+  flame: Flame,
+}
 
 function FadeUp({
   children,
@@ -67,7 +54,12 @@ function FadeUp({
   )
 }
 
-export default function CoolantPumpsIndex() {
+export default function ProductCategoryIndex({ category }: { category: ProductCategory }) {
+  const base = `/${category.slug}`
+  const quoteLink = `https://wa.me/917574835189?text=${encodeURIComponent(
+    `Hello TARA ENGIMECH, I need a quote for ${category.quoteSubject}.`
+  )}`
+
   return (
     <>
       <Navbar />
@@ -95,7 +87,7 @@ export default function CoolantPumpsIndex() {
                 Products
               </Link>
               <ChevronRight size={12} className="text-white/40" />
-              <span className="text-white">Coolant Pumps</span>
+              <span className="text-white">{category.name}</span>
             </motion.nav>
 
             <motion.div
@@ -110,14 +102,12 @@ export default function CoolantPumpsIndex() {
               </span>
 
               <h1 className="text-4xl md:text-6xl font-black text-white leading-tight tracking-tight text-balance mb-5 font-display">
-                Coolant
+                {category.heroTitle[0]}
                 <br />
-                <span className="text-[#5aadff]">Pumps</span>
+                <span className="text-[#5aadff]">{category.heroTitle[1]}</span>
               </h1>
               <p className="text-lg text-white/70 leading-relaxed mb-8">
-                Vertical immersion coolant pumps for machine tools that run all day. Three series —
-                TE/RG single stage, TE/RG multi stage and high-pressure TE/MC — covering everything
-                from a 0.1 HP grinder flood to 183 metres of through-spindle head.
+                {category.heroBlurb}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -129,7 +119,7 @@ export default function CoolantPumpsIndex() {
                   <ArrowRight size={16} />
                 </a>
                 <a
-                  href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%2C%20I%20need%20a%20quote%20for%20Coolant%20Pumps."
+                  href={quoteLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-colors backdrop-blur-sm"
@@ -146,12 +136,7 @@ export default function CoolantPumpsIndex() {
         <section className="bg-[#145795]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
-              {[
-                { value: '3', label: 'Pump Series' },
-                { value: '0.1 – 5 HP', label: 'Motor Range' },
-                { value: '250 LPM', label: 'Max Discharge' },
-                { value: '183 m', label: 'Max Head' },
-              ].map((s, i) => (
+              {category.stats.map((s, i) => (
                 <motion.div
                   key={s.label}
                   initial={{ opacity: 0, y: 20 }}
@@ -177,37 +162,31 @@ export default function CoolantPumpsIndex() {
                   About This Range
                 </span>
                 <h2 className="text-3xl md:text-4xl font-black text-[#1a2332] leading-tight mb-6 font-display text-balance">
-                  The Pump That Has to Outlast the Machine
+                  {category.overviewHeading}
                 </h2>
-                <p className="text-[#586670] leading-relaxed mb-4">
-                  A coolant pump lives a hard life. It runs every hour the machine runs, sits
-                  submerged in emulsion or neat oil, and swallows whatever chips make it past the
-                  filter. TARA ENGIMECH builds its coolant range around that reality — seal-less wet
-                  ends on the single-stage units, semi-open impellers that pass solids instead of
-                  clogging, and balanced rotors that keep the motor cool and quiet through long
-                  shifts.
-                </p>
-                <p className="text-[#586670] leading-relaxed">
-                  Nothing here is a catalogue compromise. Column length is cut to your tank depth,
-                  the outlet is sized to your line, and the wetted materials are chosen for the
-                  coolant you actually run. Standard models are held in stock for immediate
-                  despatch; specials are engineered to order.
-                </p>
+                {category.overviewParagraphs.map((para) => (
+                  <p key={para.slice(0, 40)} className="text-[#586670] leading-relaxed mb-4 last:mb-0">
+                    {para}
+                  </p>
+                ))}
               </FadeUp>
 
               <FadeUp delay={0.1} className="grid sm:grid-cols-2 gap-5">
-                {whyPoints.map((w) => (
-                  <div
-                    key={w.title}
-                    className="bg-[#F5F7F9] border border-[#DDE3E8] rounded-2xl p-6 hover:border-[#145795]/40 transition-colors"
-                  >
-                    <div className="w-11 h-11 rounded-xl bg-[#145795] flex items-center justify-center mb-4">
-                      <w.icon size={20} className="text-white" aria-hidden />
+                {category.whyPoints.map((w) => {
+                  const Icon = ICONS[w.icon]
+                  return (
+                    <div
+                      key={w.title}
+                      className="bg-[#F5F7F9] border border-[#DDE3E8] rounded-2xl p-6 hover:border-[#145795]/40 transition-colors"
+                    >
+                      <div className="w-11 h-11 rounded-xl bg-[#145795] flex items-center justify-center mb-4">
+                        <Icon size={20} className="text-white" aria-hidden />
+                      </div>
+                      <h3 className="font-bold text-[#1a2332] mb-2 leading-snug">{w.title}</h3>
+                      <p className="text-sm text-[#586670] leading-relaxed">{w.desc}</p>
                     </div>
-                    <h3 className="font-bold text-[#1a2332] mb-2 leading-snug">{w.title}</h3>
-                    <p className="text-sm text-[#586670] leading-relaxed">{w.desc}</p>
-                  </div>
-                ))}
+                  )
+                })}
               </FadeUp>
             </div>
           </div>
@@ -221,19 +200,18 @@ export default function CoolantPumpsIndex() {
                 The Range
               </span>
               <h2 className="text-3xl md:text-4xl font-black text-[#1a2332] font-display text-balance mb-4">
-                Three Series, One Purpose
+                {category.rangeHeading}
               </h2>
               <p className="text-[#586670] max-w-2xl mx-auto leading-relaxed">
-                Pick the series by the pressure you need. Every model page carries the full
-                performance chart, construction details and application list.
+                {category.rangeBlurb}
               </p>
             </FadeUp>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {coolantPumps.map((pump, i) => (
+              {category.pumps.map((pump, i) => (
                 <FadeUp key={pump.slug} delay={i * 0.1}>
                   <Link
-                    href={`/coolant-pumps/${pump.slug}`}
+                    href={`${base}/${pump.slug}`}
                     className="group flex flex-col h-full bg-white rounded-2xl shadow-sm border border-[#DDE3E8] overflow-hidden hover:shadow-xl hover:border-[#145795]/30 transition-all duration-500"
                   >
                     <div className="relative h-60 bg-gradient-to-br from-[#F5F7F9] to-[#eef1f4] overflow-hidden">
@@ -303,7 +281,7 @@ export default function CoolantPumpsIndex() {
             </FadeUp>
 
             <div className="flex flex-wrap justify-center gap-3">
-              {COOLANT_APPLICATIONS.map((a, i) => (
+              {category.applications.map((a, i) => (
                 <motion.span
                   key={a}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -328,9 +306,9 @@ export default function CoolantPumpsIndex() {
                 Not Sure Which Series Fits?
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-9 max-w-2xl mx-auto">
-                Send us your tank depth, the flow and head you need, and the coolant you run. We
-                will come back with a model, a column length and a price — usually the same working
-                day.
+                Send us the flow and pressure you need, the fluid you are handling and its working
+                temperature. We will come back with a model, a material specification and a price —
+                usually the same working day.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Link

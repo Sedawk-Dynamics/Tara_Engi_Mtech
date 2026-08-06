@@ -1,42 +1,12 @@
-/* ─────────────────────────────────────────────────────────────────────────
+import type { ProductCategory, ProductPump } from './product-types'
+
+/* ────────────────────────────────────────────────────────────────────────
    TARA ENGIMECH LLP — Coolant Pump Range
    Model prefixes: TE/RG (single & multi stage), TE/MC (vertical multistage)
-   ───────────────────────────────────────────────────────────────────────── */
-
-export type PerfTable = {
-  title: string
-  note?: string
-  /** Fixed leading columns (model, power, etc.) */
-  headers: string[]
-  /**
-   * Optional spanning band rendered above a set of numeric columns —
-   * `cols` are the sub-headers, and each row must supply one cell per entry.
-   */
-  group?: { label: string; cols: string[] }
-  rows: string[][]
-}
-
-export type CoolantPump = {
-  slug: string
-  model: string
-  name: string
-  fullTitle: string
-  tagline: string
-  image: string
-  thumb: string
-  badge: string | null
-  intro: string
-  highlights: { label: string; value: string }[]
-  features: string[]
-  applications: string[]
-  construction?: { part: string; material: string }[]
-  usedOn?: string[]
-  tables: PerfTable[]
-  dimensionImage?: string
-}
+   ──────────────────────────────────────────────────────────────────────── */
 
 /** Shared across the range — machine-shop duties these pumps are built for. */
-export const COOLANT_APPLICATIONS = [
+const COOLANT_APPLICATIONS = [
   'Turning',
   'Grinding',
   'Granite cutting',
@@ -56,7 +26,7 @@ export const COOLANT_APPLICATIONS = [
   'Machine cooling',
 ]
 
-export const coolantPumps: CoolantPump[] = [
+const pumps: ProductPump[] = [
   /* ── TE/RG Single Stage ─────────────────────────────────────────────── */
   {
     slug: 'te-rg-single-stage',
@@ -289,6 +259,50 @@ export const coolantPumps: CoolantPump[] = [
   },
 ]
 
-export function getCoolantPump(slug: string) {
-  return coolantPumps.find((p) => p.slug === slug)
+
+export const coolantPumps: ProductCategory = {
+  slug: 'coolant-pumps',
+  name: 'Coolant Pumps',
+  heroTitle: ['Coolant', 'Pumps'],
+  heroBlurb:
+    'Vertical immersion coolant pumps for machine tools that run all day. Three series — TE/RG single stage, TE/RG multi stage and high-pressure TE/MC — covering everything from a 0.1 HP grinder flood to 183 metres of through-spindle head.',
+  stats: [
+    { value: '3', label: 'Pump Series' },
+    { value: '0.1 – 5 HP', label: 'Motor Range' },
+    { value: '250 LPM', label: 'Max Discharge' },
+    { value: '183 m', label: 'Max Head' },
+  ],
+  overviewHeading: 'The Pump That Has to Outlast the Machine',
+  overviewParagraphs: [
+    'A coolant pump lives a hard life. It runs every hour the machine runs, sits submerged in emulsion or neat oil, and swallows whatever chips make it past the filter. TARA ENGIMECH builds its coolant range around that reality — seal-less wet ends on the single-stage units, semi-open impellers that pass solids instead of clogging, and balanced rotors that keep the motor cool and quiet through long shifts.',
+    'Nothing here is a catalogue compromise. Column length is cut to your tank depth, the outlet is sized to your line, and the wetted materials are chosen for the coolant you actually run. Standard models are held in stock for immediate despatch; specials are engineered to order.',
+  ],
+  whyPoints: [
+    {
+      icon: 'shield',
+      title: 'Seal-Less Where It Counts',
+      desc: 'Our single-stage wet ends carry no shaft seal at all — the single most common coolant-pump failure point is simply designed out.',
+    },
+    {
+      icon: 'settings',
+      title: 'Built to Your Tank',
+      desc: 'Column length, outlet size and material are made to order, so the pump matches your machine instead of the other way round.',
+    },
+    {
+      icon: 'gauge',
+      title: 'Verified Performance',
+      desc: 'Every published duty point comes off our calibrated test rig — the head you specify is the head you get on the shop floor.',
+    },
+    {
+      icon: 'droplets',
+      title: 'Any Coolant, Any Chemistry',
+      desc: 'Cast iron through to SS 316, Bronze, Alloy-20 and PP — for water, emulsion, neat cutting oil or aggressive wash solutions.',
+    },
+  ],
+  rangeHeading: 'Three Series, One Purpose',
+  rangeBlurb:
+    'Pick the series by the pressure you need. Every model page carries the full performance chart, construction details and application list.',
+  applications: COOLANT_APPLICATIONS,
+  quoteSubject: 'Coolant Pumps',
+  pumps,
 }

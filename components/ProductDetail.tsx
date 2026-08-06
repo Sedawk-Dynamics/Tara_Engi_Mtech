@@ -16,7 +16,7 @@ import {
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
-import { coolantPumps, type CoolantPump, type PerfTable } from '@/lib/coolant-pumps'
+import type { ProductCategory, ProductPump, PerfTable } from '@/lib/product-types'
 
 const WA_BASE = 'https://wa.me/917574835189?text='
 
@@ -121,10 +121,17 @@ function PerformanceTable({ table }: { table: PerfTable }) {
   )
 }
 
-export default function CoolantPumpDetail({ pump }: { pump: CoolantPump }) {
-  const others = coolantPumps.filter((p) => p.slug !== pump.slug)
+export default function ProductDetail({
+  category,
+  pump,
+}: {
+  category: ProductCategory
+  pump: ProductPump
+}) {
+  const base = `/${category.slug}`
+  const others = category.pumps.filter((p) => p.slug !== pump.slug)
   const quoteLink = `${WA_BASE}${encodeURIComponent(
-    `Hello TARA ENGIMECH, I would like a quotation for the ${pump.name} coolant pump.`
+    `Hello TARA ENGIMECH, I would like a quotation for the ${pump.name} (${category.name}).`
   )}`
 
   return (
@@ -154,8 +161,8 @@ export default function CoolantPumpDetail({ pump }: { pump: CoolantPump }) {
                 Products
               </Link>
               <ChevronRight size={12} className="text-white/40" />
-              <Link href="/coolant-pumps" className="hover:text-white transition-colors">
-                Coolant Pumps
+              <Link href={base} className="hover:text-white transition-colors">
+                {category.name}
               </Link>
               <ChevronRight size={12} className="text-white/40" />
               <span className="text-white">{pump.name}</span>
@@ -176,7 +183,7 @@ export default function CoolantPumpDetail({ pump }: { pump: CoolantPump }) {
                 <h1 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight text-balance mb-4 font-display">
                   {pump.name}
                   <br />
-                  <span className="text-[#5aadff]">Coolant Pumps</span>
+                  <span className="text-[#5aadff]">{category.name}</span>
                 </h1>
                 <p className="text-lg text-white/70 max-w-xl leading-relaxed mb-8">
                   {pump.tagline}
@@ -399,15 +406,15 @@ export default function CoolantPumpDetail({ pump }: { pump: CoolantPump }) {
                   Also in This Range
                 </span>
                 <h2 className="text-3xl font-black text-[#1a2332] font-display">
-                  Other Coolant Pump Models
+                  Other {category.name}
                 </h2>
               </div>
               <Link
-                href="/coolant-pumps"
+                href={base}
                 className="flex items-center gap-2 text-sm font-semibold text-[#145795] hover:gap-3 transition-all"
               >
                 <ArrowLeft size={16} />
-                Back to Coolant Pumps
+                Back to {category.name}
               </Link>
             </FadeUp>
 
@@ -415,7 +422,7 @@ export default function CoolantPumpDetail({ pump }: { pump: CoolantPump }) {
               {others.map((o, i) => (
                 <FadeUp key={o.slug} delay={i * 0.08}>
                   <Link
-                    href={`/coolant-pumps/${o.slug}`}
+                    href={`${base}/${o.slug}`}
                     className="group flex gap-5 items-center bg-white rounded-2xl border border-[#DDE3E8] p-5 hover:border-[#145795]/40 hover:shadow-lg transition-all duration-300"
                   >
                     <div className="relative w-24 h-24 flex-shrink-0 bg-[#F5F7F9] rounded-xl overflow-hidden">
@@ -455,9 +462,9 @@ export default function CoolantPumpDetail({ pump }: { pump: CoolantPump }) {
                 Tell Us Your Duty Point — We&apos;ll Size the Pump
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-9 max-w-2xl mx-auto">
-                Share your tank depth, required flow and head, and the coolant you are running. Our
-                application engineers will come back with the right {pump.name} model, column length
-                and material specification.
+                Send us the flow and pressure you need, the fluid you are handling and its working
+                temperature. Our application engineers will come back with the right {pump.name}{' '}
+                model, mounting arrangement and material specification.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Link

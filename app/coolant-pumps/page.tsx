@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import CoolantPumpsIndex from '@/components/CoolantPumpsIndex'
+import ProductCategoryIndex from '@/components/ProductCategoryIndex'
+import { coolantPumps } from '@/lib/products'
 
 export const metadata: Metadata = {
   title: 'Coolant Pumps | TE/RG & TE/MC Series | TARA ENGIMECH LLP',
@@ -28,5 +29,5 @@ export const metadata: Metadata = {
 }
 
 export default function CoolantPumpsPage() {
-  return <CoolantPumpsIndex />
+  return <ProductCategoryIndex category={coolantPumps} />
 }
