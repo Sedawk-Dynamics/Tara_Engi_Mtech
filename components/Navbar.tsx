@@ -1,13 +1,16 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Phone, MessageCircle, ArrowRight } from 'lucide-react'
+import { Menu, X, ChevronDown, ChevronRight, Phone, MessageCircle, ArrowRight } from 'lucide-react'
 
 type ProductCategory = {
   name: string
+  /** One-line summary shown in the mega-menu detail panel. */
+  blurb: string
   models: string[]
   href: string
   /** Per-model destinations, where a model has a page of its own. */
@@ -17,6 +20,7 @@ type ProductCategory = {
 const productCategories: ProductCategory[] = [
   {
     name: 'Rotary Gear Pumps',
+    blurb: 'Positive-displacement gear pumps for viscous fluids — 0.5 to 2080 LPM, up to 35 kg/cm².',
     models: ['TERG', 'TERG/SS', 'TEIG', 'TERN/TERB', 'TERMS/TERM', 'TERX', 'TERMP', 'TEBX/TENX'],
     href: '/rotary-gear-pumps',
     modelLinks: {
@@ -32,6 +36,7 @@ const productCategories: ProductCategory[] = [
   },
   {
     name: 'Coolant Pumps',
+    blurb: 'Vertical immersion pumps for machine tools — seal-less wet ends, built to your tank depth.',
     models: ['TE/RG Single Stage', 'TE/RG Multi Stage', 'TE/MC Multi Stage'],
     href: '/coolant-pumps',
     modelLinks: {
@@ -40,14 +45,26 @@ const productCategories: ProductCategory[] = [
       'TE/MC Multi Stage': '/coolant-pumps/te-mc-multi-stage',
     } as Record<string, string>,
   },
-  { name: 'Centrifugal Process Pumps', models: ['TECP', 'TESOP', 'TESP', 'TEFP', 'TESPP', 'TESMP', 'TEHMP'], href: '/centrifugal-process-pumps' },
-  { name: 'High-Pressure Pumps', models: ['TESMP', 'TEHMP'], href: '/centrifugal-process-pumps#tesmp' },
-  { name: 'Slurry & Self-Priming', models: ['TESP', 'TESOP'], href: '/centrifugal-process-pumps#tesop' },
-  { name: 'Custom Engineering', models: ['OEM DESIGNS', 'SPECIAL SERIES', 'APPLICATION BUILD'], href: '#contact' },
+  {
+    name: 'Centrifugal Process Pumps',
+    blurb: 'End-suction, split-case and multistage process pumps for continuous plant duty.',
+    models: ['TECP', 'TESOP', 'TESP', 'TEFP', 'TESPP', 'TESMP', 'TEHMP'],
+    href: '/centrifugal-process-pumps',
+    // These models share one page; each links to its own card anchor.
+    modelLinks: {
+      TECP: '/centrifugal-process-pumps#tecp',
+      TESOP: '/centrifugal-process-pumps#tesop',
+      TESP: '/centrifugal-process-pumps#tesp',
+      TEFP: '/centrifugal-process-pumps#tefp',
+      TESPP: '/centrifugal-process-pumps#tespp',
+      TESMP: '/centrifugal-process-pumps#tesmp',
+      TEHMP: '/centrifugal-process-pumps#tehmp',
+    },
+  },
+  { name: 'High-Pressure Pumps', blurb: 'Multistage centrifugal sets for boiler feed, reverse osmosis and high-head injection.', models: ['TESMP', 'TEHMP'], href: '/centrifugal-process-pumps#tesmp' },
+  { name: 'Slurry & Self-Priming', blurb: 'Wear-resistant and solids-handling pumps for abrasive slurry and difficult suction.', models: ['TESP', 'TESOP'], href: '/centrifugal-process-pumps#tesop' },
+  { name: 'Custom Engineering', blurb: 'OEM designs and special series engineered around your duty point and materials.', models: ['OEM DESIGNS', 'SPECIAL SERIES', 'APPLICATION BUILD'], href: '#contact' },
 ]
-
-/** Compact chip label — drops the trailing "Stage" so cards stay narrow. */
-const shortModel = (model: string) => model.replace(/\s+Stage$/, '')
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -62,7 +79,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
+  const [activeCat, setActiveCat] = useState(0)
   const megaRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
+  const active = productCategories[activeCat]
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -99,7 +119,7 @@ export default function Navbar() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" ref={megaRef}>
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="#home" onClick={() => handleNavClick('#home')} className="flex-shrink-0">
@@ -114,7 +134,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1" ref={megaRef}>
+            <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) =>
                 link.hasMenu ? (
                   <div key={link.label} className="relative">
@@ -132,171 +152,6 @@ export default function Navbar() {
                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#145795] group-hover:w-full transition-all duration-300" />
                     </button>
 
-                    <AnimatePresence>
-                      {megaOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 12, scale: 0.97 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 12, scale: 0.97 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-max bg-gradient-to-br from-[#145795] via-[#145795] to-[#0e3f6e] rounded-xl shadow-2xl border border-[#0e3f6e] p-0 z-50 overflow-hidden"
-                        >
-                          {/* Blue background section with product categories */}
-                          <div className="flex gap-0">
-                            {/* Main categories */}
-                            <div className="w-72 py-6 px-6">
-                              <p className="text-xs font-bold text-white/60 uppercase tracking-widest mb-4">
-                                Product Categories
-                              </p>
-                              <div className="space-y-0.5">
-                                {productCategories.slice(0, 3).map((cat) => (
-                                  cat.href.startsWith('/') ? (
-                                    <Link
-                                      key={cat.name}
-                                      href={cat.href}
-                                      onClick={() => setMegaOpen(false)}
-                                      className="w-full block text-left px-4 py-3 text-white font-semibold hover:bg-white/15 transition-colors border-b border-white/10 last:border-b-0 text-sm"
-                                    >
-                                      {cat.name}
-                                    </Link>
-                                  ) : (
-                                    <button
-                                      key={cat.name}
-                                      onClick={() => {
-                                        handleNavClick(cat.href)
-                                        setMegaOpen(false)
-                                      }}
-                                      className="w-full text-left px-4 py-3 text-white font-semibold hover:bg-white/15 transition-colors border-b border-white/10 last:border-b-0 text-sm"
-                                    >
-                                      {cat.name}
-                                    </button>
-                                  )
-                                ))}
-                              </div>
-                            </div>
-
-                            {/* Model numbers grid */}
-                            <div className="bg-white/5 border-l border-white/10 py-6 px-8">
-                              <div className="grid grid-cols-2 gap-6">
-                                {productCategories.slice(0, 2).map((cat) => (
-                                  <div key={cat.name}>
-                                    <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-2">
-                                      {cat.name.split(' ')[0]} Models
-                                    </p>
-                                    <div className="space-y-1.5">
-                                      {cat.models?.map((model) => {
-                                        const target = cat.modelLinks?.[model] ?? cat.href
-                                        const cls =
-                                          'text-white/80 hover:text-white text-xs font-medium hover:translate-x-1 transition-all block'
-                                        return target.startsWith('/') ? (
-                                          <Link
-                                            key={model}
-                                            href={target}
-                                            onClick={() => setMegaOpen(false)}
-                                            className={cls}
-                                          >
-                                            {model}
-                                          </Link>
-                                        ) : (
-                                          <button
-                                            key={model}
-                                            onClick={() => handleNavClick(target)}
-                                            className={cls}
-                                          >
-                                            {model}
-                                          </button>
-                                        )
-                                      })}
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Bottom white section with all categories */}
-                          <div className="bg-white p-6 border-t border-[#DDE3E8]">
-                            <div className="grid grid-cols-3 gap-4">
-                              {productCategories.map((cat) =>
-                                cat.href.startsWith('/') ? (
-                                  <Link
-                                    key={cat.name}
-                                    href={cat.href}
-                                    onClick={() => setMegaOpen(false)}
-                                    className="group text-left p-3 rounded-lg hover:bg-[#F5F7F9] transition-colors block"
-                                  >
-                                    <p className="text-sm font-bold text-[#145795] group-hover:text-[#0e3f6e] mb-1">
-                                      {cat.name}
-                                    </p>
-                                    <p className="text-xs text-[#586670] mb-2">
-                                      {cat.models?.length || 0} models
-                                    </p>
-                                    <div className="flex flex-wrap gap-1">
-                                      {cat.models?.slice(0, 3).map((model) => (
-                                        <span
-                                          key={model}
-                                          className="text-xs px-2 py-1 rounded bg-[#145795]/10 text-[#145795] font-semibold"
-                                        >
-                                          {shortModel(model)}
-                                        </span>
-                                      ))}
-                                      {cat.models && cat.models.length > 3 && (
-                                        <span className="text-xs px-2 py-1 text-[#586670] font-medium">
-                                          +{cat.models.length - 3}
-                                        </span>
-                                      )}
-                                    </div>
-                                  </Link>
-                                ) : (
-                                  <button
-                                    key={cat.name}
-                                    onClick={() => {
-                                      handleNavClick(cat.href)
-                                      setMegaOpen(false)
-                                    }}
-                                    className="group text-left p-3 rounded-lg hover:bg-[#F5F7F9] transition-colors"
-                                  >
-                                    <p className="text-sm font-bold text-[#145795] group-hover:text-[#0e3f6e] mb-1">
-                                      {cat.name}
-                                    </p>
-                                    <p className="text-xs text-[#586670] mb-2">
-                                      {cat.models?.length || 0} models
-                                    </p>
-                                    <div className="flex flex-wrap gap-1">
-                                      {cat.models?.slice(0, 3).map((model) => (
-                                        <span
-                                          key={model}
-                                          className="text-xs px-2 py-1 rounded bg-[#F5F7F9] text-[#145795] font-semibold"
-                                        >
-                                          {shortModel(model)}
-                                        </span>
-                                      ))}
-                                      {cat.models && cat.models.length > 3 && (
-                                        <span className="text-xs px-2 py-1 text-[#586670] font-medium">
-                                          +{cat.models.length - 3}
-                                        </span>
-                                      )}
-                                    </div>
-                                  </button>
-                                )
-                              )}
-                            </div>
-                            <div className="mt-4 pt-4 border-t border-[#DDE3E8]">
-                              <button
-                                onClick={() => {
-                                  handleNavClick('#contact')
-                                  setMegaOpen(false)
-                                }}
-                                className="flex items-center gap-2 text-sm font-semibold text-[#145795] hover:text-[#0e3f6e] hover:gap-3 transition-all"
-                              >
-                                <span>📋 Download Product Brochure</span>
-                                <ArrowRight size={14} />
-                              </button>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
                   </div>
                 ) : (
                   <button
@@ -348,6 +203,128 @@ export default function Navbar() {
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
+
+          {/* ── Products mega-menu ── */}
+          <AnimatePresence>
+            {megaOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 8 }}
+                transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-full bg-white rounded-2xl shadow-2xl shadow-black/15 ring-1 ring-black/5 overflow-hidden z-50"
+              >
+                <div className="flex">
+                  {/* Category rail */}
+                  <div className="w-[272px] shrink-0 bg-[#0e3f6e] py-5">
+                    <p className="px-6 pb-3 text-[10px] font-bold uppercase tracking-[0.15em] text-white/40">
+                      Product Categories
+                    </p>
+                    {productCategories.map((cat, i) => (
+                      <button
+                        key={cat.name}
+                        onMouseEnter={() => setActiveCat(i)}
+                        onFocus={() => setActiveCat(i)}
+                        onClick={() => {
+                          if (cat.href.startsWith('/')) router.push(cat.href)
+                          else handleNavClick(cat.href)
+                          setMegaOpen(false)
+                        }}
+                        className={`w-full flex items-center justify-between gap-3 pl-6 pr-4 py-2.5 text-left text-sm transition-colors border-l-2 ${
+                          i === activeCat
+                            ? 'bg-white/10 border-[#5aadff] text-white font-semibold'
+                            : 'border-transparent text-white/70 hover:text-white hover:bg-white/5 font-medium'
+                        }`}
+                      >
+                        <span className="truncate">{cat.name}</span>
+                        <ChevronRight
+                          size={14}
+                          className={`shrink-0 transition-opacity ${
+                            i === activeCat ? 'opacity-70' : 'opacity-0'
+                          }`}
+                        />
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Detail panel */}
+                  <div className="flex-1 min-w-0 p-7">
+                    <div className="flex items-start justify-between gap-8 mb-5">
+                      <div className="min-w-0">
+                        <h3 className="text-base font-bold text-[#1a2332] font-display">
+                          {active.name}
+                        </h3>
+                        <p className="text-sm text-[#586670] leading-relaxed mt-1 max-w-md">
+                          {active.blurb}
+                        </p>
+                      </div>
+                      {active.href.startsWith('/') && (
+                        <Link
+                          href={active.href}
+                          onClick={() => setMegaOpen(false)}
+                          className="shrink-0 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#145795] hover:gap-2.5 transition-all whitespace-nowrap"
+                        >
+                          View Range
+                          <ArrowRight size={13} />
+                        </Link>
+                      )}
+                    </div>
+
+                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#8da0ad] mb-2">
+                      {active.models.length} Models
+                    </p>
+                    <div className="grid grid-cols-2 gap-x-8">
+                      {active.models.map((model) => {
+                        const target = active.modelLinks?.[model] ?? active.href
+                        const label = (
+                          <>
+                            <span className="truncate">{model}</span>
+                            <ArrowRight
+                              size={12}
+                              className="shrink-0 opacity-0 -translate-x-1 group-hover/m:opacity-100 group-hover/m:translate-x-0 transition-all"
+                            />
+                          </>
+                        )
+                        const cls =
+                          'group/m w-full flex items-center justify-between gap-2 py-2 text-sm font-medium text-[#1a2332] border-b border-[#DDE3E8] last:border-b-0 hover:text-[#145795] transition-colors text-left'
+                        return target.startsWith('/') ? (
+                          <Link
+                            key={model}
+                            href={target}
+                            onClick={() => setMegaOpen(false)}
+                            className={cls}
+                          >
+                            {label}
+                          </Link>
+                        ) : (
+                          <button key={model} onClick={() => handleNavClick(target)} className={cls}>
+                            {label}
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer strip */}
+                <div className="flex items-center justify-between gap-6 bg-[#F5F7F9] border-t border-[#DDE3E8] px-7 py-3.5">
+                  <p className="text-xs text-[#586670]">
+                    Not sure which model fits? Send us your duty point and we&apos;ll size it.
+                  </p>
+                  <button
+                    onClick={() => {
+                      handleNavClick('#contact')
+                      setMegaOpen(false)
+                    }}
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#145795] hover:gap-3 transition-all whitespace-nowrap"
+                  >
+                    Talk to an Engineer
+                    <ArrowRight size={13} />
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </motion.header>
 
