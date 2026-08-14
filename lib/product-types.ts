@@ -36,6 +36,8 @@ export type ProductPump = {
   usedOn?: string[]
   tables: PerfTable[]
   dimensionImage?: string
+  /** Extra product images shown in a gallery above the performance tables. */
+  galleryImages?: string[]
 }
 
 /** Everything a category landing page needs, so the layout stays generic. */

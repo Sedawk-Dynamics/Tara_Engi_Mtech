@@ -357,6 +357,57 @@ export default function ProductDetail({
           </div>
         </section>
 
+        {/* ── Product Gallery ── */}
+        {pump.galleryImages && pump.galleryImages.length > 0 && (
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <FadeUp className="mb-10">
+                <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#145795] bg-[#145795]/10 px-3 py-1.5 rounded-full mb-4">
+                  Product Gallery
+                </span>
+                <h2 className="text-3xl md:text-4xl font-black text-[#1a2332] font-display text-balance">
+                  {pump.name} — Product Images
+                </h2>
+              </FadeUp>
+
+              <div
+                className={`grid gap-6 ${
+                  pump.galleryImages.length === 1
+                    ? 'grid-cols-1 max-w-2xl mx-auto'
+                    : pump.galleryImages.length === 2
+                    ? 'grid-cols-1 sm:grid-cols-2'
+                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+                }`}
+              >
+                {pump.galleryImages.map((src, i) => (
+                  <motion.div
+                    key={src}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    className="group relative rounded-2xl overflow-hidden border border-[#DDE3E8] bg-[#F5F7F9] shadow-sm hover:shadow-xl hover:border-[#145795]/40 transition-all duration-500"
+                    style={{ aspectRatio: '4/3' }}
+                  >
+                    <Image
+                      src={src}
+                      alt={`${pump.name} — product image ${i + 1}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0e1a26]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none">
+                      {pump.name}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* ── Performance charts ── */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

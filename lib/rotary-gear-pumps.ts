@@ -88,6 +88,7 @@ const pumps: ProductPump[] = [
         ],
       },
     ],
+    galleryImages: ['/rotatory-gear-pump image/terg.jpg'],
   },
 
   /* ── TERG/SS ────────────────────────────────────────────────────────── */
@@ -170,6 +171,7 @@ const pumps: ProductPump[] = [
         ],
       },
     ],
+    galleryImages: ['/rotatory-gear-pump image/terg-ss.jpg'],
   },
 
   /* ── TEIG ───────────────────────────────────────────────────────────── */
@@ -258,6 +260,7 @@ const pumps: ProductPump[] = [
         ],
       },
     ],
+    galleryImages: ['/rotatory-gear-pump image/teig.jpg'],
   },
 
   /* ── TERN / TERB ────────────────────────────────────────────────────── */
@@ -335,6 +338,7 @@ const pumps: ProductPump[] = [
         ],
       },
     ],
+    galleryImages: ['/rotatory-gear-pump image/tern-terb.jpg'],
   },
 
   /* ── TERMS / TERM ───────────────────────────────────────────────────── */
@@ -417,6 +421,7 @@ const pumps: ProductPump[] = [
         ],
       },
     ],
+    galleryImages: ['/rotatory-gear-pump image/terms-term.jpg'],
   },
 
   /* ── TERX ───────────────────────────────────────────────────────────── */
@@ -617,6 +622,7 @@ const pumps: ProductPump[] = [
         ],
       },
     ],
+    galleryImages: ['/rotatory-gear-pump image/tebx-tenx.jpg'],
   },
 ]
 
