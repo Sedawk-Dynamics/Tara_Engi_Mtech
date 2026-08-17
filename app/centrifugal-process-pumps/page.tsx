@@ -31,7 +31,7 @@ const pumps = [
     model: 'TECP',
     name: 'Centrifugal Process Pump',
     tagline: 'Standard horizontal end-suction for general industrial service',
-    image: '/images/pump-tecp.png',
+    image: '/images/Centrifugal-process-pump/pump-tecp.webp',
     description:
       'The TECP series is a robust horizontal end-suction centrifugal pump engineered for demanding industrial process applications. Its back pull-out design allows complete maintenance without disturbing piping, reducing downtime significantly.',
     applications: [
@@ -69,7 +69,7 @@ const pumps = [
     model: 'TESOP',
     name: 'Self-Priming Open Face Pump',
     tagline: 'Reliable self-priming for solids-handling & difficult suction conditions',
-    image: '/images/pump-tesop.png',
+    image: '/images/Centrifugal-process-pump/pump-tesop.webp',
     description:
       'The TESOP series is a self-priming centrifugal pump designed to handle liquids containing solids, air, or gas. Its open-face impeller design ensures trouble-free operation even in challenging suction conditions without an external priming system.',
     applications: [
@@ -107,7 +107,7 @@ const pumps = [
     model: 'TESP',
     name: 'Slurry Process Pump',
     tagline: 'Heavy-duty wear-resistant design for abrasive slurry service',
-    image: '/images/pump-tesp.png',
+    image: '/images/Centrifugal-process-pump/pump-tesp.webp',
     description:
       'The TESP series is specifically engineered for continuous pumping of highly abrasive and corrosive slurries. Reinforced wear-resistant liners and heavy-duty impellers extend service life dramatically in the harshest environments.',
     applications: [

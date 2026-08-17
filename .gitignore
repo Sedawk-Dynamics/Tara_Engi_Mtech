@@ -8,3 +8,6 @@ node_modules
 .next/
 .env*.local
 .DS_Store
+# Full-resolution product photo masters (multi-MB PNGs).
+# Optimised .webp derivatives next to them are what the site ships.
+public/images/Centrifugal-process-pump/*.png
