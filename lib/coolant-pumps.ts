@@ -34,8 +34,8 @@ const pumps: ProductPump[] = [
     name: 'TE/RG Single Stage',
     fullTitle: 'TE/RG Single Stage Coolant Pumps',
     tagline: 'Seal-less vertical immersion pump for everyday machine-tool coolant duty',
-    image: '/images/coolant/te-rg-single-stage.jpg',
-    thumb: '/images/coolant/coolant-single-thumb.jpg',
+    image: '/images/coolant/te-rg-single-stage.webp',
+    thumb: '/images/coolant/te-rg-single-stage.webp',
     badge: 'Most Popular',
     intro:
       'The TE/RG Single Stage is our workhorse vertical immersion coolant pump — the unit that sits in the tank of a lathe, grinder or drilling machine and simply keeps running. Because the wet end carries no shaft seal at all, there is nothing to wear out and nothing to replace, which is why these pumps routinely outlast the machines they are fitted to. A semi-open impeller lets chips and fine solids pass straight through instead of blocking the pump, and column lengths are built to order so the unit matches your tank depth exactly.',

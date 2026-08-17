@@ -259,7 +259,7 @@ const pumps = [
     model: 'TEHMP',
     name: 'High-Pressure Multistage Pump',
     tagline: 'Ultra-high-pressure multistage for the most demanding service',
-    image: '/images/pump-tehmp.png',
+    image: '/images/Centrifugal-process-pump/pump-tehmp.webp',
     description:
       'The TEHMP series represents the pinnacle of our centrifugal pump engineering — an ultra-high-pressure multistage pump designed for critical service where reliability is non-negotiable. Manufactured to exacting tolerances with premium alloys for extreme-pressure injection and high-head duties.',
     applications: [
