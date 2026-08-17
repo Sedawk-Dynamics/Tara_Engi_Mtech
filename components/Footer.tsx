@@ -1,5 +1,7 @@
 'use client'
 
+import { useAnchorNav } from '@/lib/use-anchor-nav'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -73,12 +75,9 @@ const industries = [
   'Marine',
 ]
 
-const handleScrollTo = (href: string) => {
-  const el = document.querySelector(href)
-  if (el) el.scrollIntoView({ behavior: 'smooth' })
-}
-
 export default function Footer() {
+  const handleScrollTo = useAnchorNav()
+
   return (
     <footer className="bg-[#0e1a26] text-white">
       {/* Top CTA strip */}

@@ -145,7 +145,7 @@ const pumps = [
     model: 'TEFP',
     name: 'Flanged Process Pump',
     tagline: 'Chemical-grade flanged pump for corrosive & high-temperature media',
-    image: '/images/pump-tefp.png',
+    image: '/images/Centrifugal-process-pump/TEFP.png',
     description:
       'The TEFP series is a heavy-duty flanged centrifugal process pump designed for corrosive chemical and petrochemical service. Its rigid construction, precision-ground flanges, and comprehensive material options make it ideal for API 610 applications.',
     applications: [

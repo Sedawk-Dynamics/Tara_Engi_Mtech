@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import { useAnchorNav } from '@/lib/use-anchor-nav'
 import { Menu, X, ChevronDown, ChevronRight, Phone, MessageCircle } from 'lucide-react'
 
 type ProductCategory = {
@@ -93,11 +95,13 @@ export default function Navbar() {
     if (!megaOpen) setOpenSub(null)
   }, [megaOpen])
 
+  const goToAnchor = useAnchorNav()
+  const pathname = usePathname()
+
   const handleNavClick = (href: string) => {
     setMobileOpen(false)
     setMegaOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    goToAnchor(href)
   }
 
   return (
@@ -115,7 +119,17 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" ref={megaRef}>
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="#home" onClick={() => handleNavClick('#home')} className="flex-shrink-0">
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (pathname === '/') {
+                  e.preventDefault()
+                  handleNavClick('#home')
+                }
+                setMobileOpen(false)
+              }}
+              className="flex-shrink-0"
+            >
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-5tILah1slAYsZGDHE0ChXLedBtisLI.png"
                 alt="TARA ENGIMECH LLP - Turning Power Into Flow"
