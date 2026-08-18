@@ -1,11 +1,12 @@
 'use client'
 
 import { useAnchorNav } from '@/lib/use-anchor-nav'
+import { CONTACT } from '@/lib/contact'
 
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Phone, Mail, MessageCircle, MapPin, ArrowRight } from 'lucide-react'
+import { Phone, Mail, MessageCircle, MapPin, ArrowRight, Globe } from 'lucide-react'
 
 // Inline SVG icons for social platforms not available in lucide-react@1.17
 function LinkedinIcon({ size = 15 }: { size?: number }) {
@@ -214,27 +215,53 @@ export default function Footer() {
                   className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors group"
                 >
                   <Phone size={15} className="mt-0.5 text-[#145795] flex-shrink-0" />
-                  <div>
-                    <span className="block">+91 75748 35189</span>
-                    <span className="block">+91 98254 11864</span>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:taraengimechllp@gmail.com"
-                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  <Mail size={15} className="mt-0.5 text-[#145795] flex-shrink-0" />
-                  taraengimechllp@gmail.com
+                  <span>{CONTACT.phone.display}</span>
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-sm text-gray-400">
-                  <MapPin size={15} className="mt-0.5 text-[#145795] flex-shrink-0" />
-                  {/* TODO: Add exact office address */}
-                  <span>Gujarat, India</span>
+                  <Mail size={15} className="mt-0.5 text-[#145795] flex-shrink-0" />
+                  <div className="space-y-1">
+                    <a
+                      href={`mailto:${CONTACT.emails.primary}`}
+                      className="block break-all hover:text-white transition-colors"
+                    >
+                      {CONTACT.emails.primary}
+                    </a>
+                    <a
+                      href={`mailto:${CONTACT.emails.sales}`}
+                      className="block break-all hover:text-white transition-colors"
+                    >
+                      {CONTACT.emails.sales}
+                    </a>
+                  </div>
                 </div>
+              </li>
+              <li>
+                <a
+                  href={CONTACT.website.href}
+                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors"
+                >
+                  <Globe size={15} className="mt-0.5 text-[#145795] flex-shrink-0" />
+                  {CONTACT.website.display}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={CONTACT.address.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors"
+                >
+                  <MapPin size={15} className="mt-0.5 text-[#145795] flex-shrink-0" />
+                  <span className="not-italic">
+                    {CONTACT.address.lines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </span>
+                </a>
               </li>
             </ul>
             <div className="mt-5 space-y-2">
@@ -246,15 +273,6 @@ export default function Footer() {
               >
                 <MessageCircle size={14} />
                 WhatsApp: +91 75748 35189
-              </a>
-              <a
-                href="https://wa.me/919825411864?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-[#25D366] hover:text-green-400 transition-colors"
-              >
-                <MessageCircle size={14} />
-                WhatsApp: +91 98254 11864
               </a>
             </div>
           </div>

@@ -841,8 +841,6 @@ export default function CentrifugalProcessPumpsPage() {
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-white/50">
                 <span>+91 75748 35189</span>
                 <span className="hidden sm:block text-white/20">|</span>
-                <span>+91 98254 11864</span>
-                <span className="hidden sm:block text-white/20">|</span>
                 <span>taraengimechllp@gmail.com</span>
               </div>
             </FadeUp>

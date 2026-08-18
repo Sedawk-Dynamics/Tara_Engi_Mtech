@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import { CONTACT } from '@/lib/contact'
 import { motion } from 'framer-motion'
-import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle, AlertCircle, Globe } from 'lucide-react'
 
 const productOptions = [
   'External Gear Pumps',
@@ -54,7 +55,7 @@ export default function ContactSection() {
         const body = encodeURIComponent(
           `Name: ${form.fullName}\nCompany: ${form.companyName}\nPhone: ${form.phone}\nEmail: ${form.email}\nProduct Interest: ${form.productInterest}\n\nMessage:\n${form.message}`
         )
-        window.location.href = `mailto:taraengimechllp@gmail.com?subject=${subject}&body=${body}`
+        window.location.href = `mailto:${CONTACT.emails.primary}?subject=${subject}&body=${body}`
         setStatus('success')
         return
       }
@@ -136,9 +137,6 @@ export default function ContactSection() {
                     <a href="tel:+917574835189" className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors block">
                       +91 75748 35189
                     </a>
-                    {/* <a href="tel:+919825411864" className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors block">
-                      +91 98254 11864
-                    </a> */}
                   </div>
                 </div>
 
@@ -156,14 +154,6 @@ export default function ContactSection() {
                     >
                       +91 75748 35189
                     </a>
-                    <a
-                      href="https://wa.me/919825411864?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-bold text-[#25D366] hover:text-green-600 transition-colors block"
-                    >
-                      +91 98254 11864
-                    </a>
                   </div>
                 </div>
 
@@ -174,10 +164,16 @@ export default function ContactSection() {
                   <div>
                     <p className="text-xs text-[#586670] mb-1 font-medium">Email</p>
                     <a
-                      href="mailto:taraengimechllp@gmail.com"
-                      className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors break-all"
+                      href={`mailto:${CONTACT.emails.primary}`}
+                      className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors break-all block"
                     >
-                      taraengimechllp@gmail.com
+                      {CONTACT.emails.primary}
+                    </a>
+                    <a
+                      href={`mailto:${CONTACT.emails.sales}`}
+                      className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors break-all block"
+                    >
+                      {CONTACT.emails.sales}
                     </a>
                   </div>
                 </div>
@@ -187,11 +183,34 @@ export default function ContactSection() {
                     <MapPin size={16} className="text-[#145795]" />
                   </div>
                   <div>
-                    <p className="text-xs text-[#586670] mb-1 font-medium">Office Location</p>
-                    {/* TODO: Add exact office address */}
-                    {/* TODO: Add latitude and longitude for map integration */}
-                    <p className="text-sm text-[#586670]">Gujarat, India</p>
-                    <p className="text-xs text-[#586670] opacity-60">(Full address coming soon)</p>
+                    <p className="text-xs text-[#586670] mb-1 font-medium">Office Address</p>
+                    <a
+                      href={CONTACT.address.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-[#586670] not-italic hover:text-[#145795] transition-colors"
+                    >
+                      {CONTACT.address.lines.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-[#145795]/10 border border-[#145795]/20 flex items-center justify-center flex-shrink-0">
+                    <Globe size={16} className="text-[#145795]" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-[#586670] mb-1 font-medium">Website</p>
+                    <a
+                      href={CONTACT.website.href}
+                      className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors break-all"
+                    >
+                      {CONTACT.website.display}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -209,15 +228,6 @@ export default function ContactSection() {
                 >
                   <MessageCircle size={16} />
                   Chat: +91 75748 35189
-                </a>
-                <a
-                  href="https://wa.me/919825411864?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-white border border-[#25D366]/30 text-[#25D366] rounded-lg text-sm font-semibold hover:bg-[#25D366]/5 transition-colors"
-                >
-                  <MessageCircle size={16} />
-                  Chat: +91 98254 11864
                 </a>
               </div>
             </div>
@@ -387,8 +397,8 @@ export default function ContactSection() {
 
                   <p className="text-xs text-center text-[#586670]">
                     All enquiries are sent to{' '}
-                    <a href="mailto:taraengimechllp@gmail.com" className="text-[#145795] hover:underline">
-                      taraengimechllp@gmail.com
+                    <a href={`mailto:${CONTACT.emails.primary}`} className="text-[#145795] hover:underline">
+                      {CONTACT.emails.primary}
                     </a>
                   </p>
                 </form>

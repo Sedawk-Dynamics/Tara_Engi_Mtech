@@ -6,14 +6,9 @@ import { MessageCircle, X, Phone } from 'lucide-react'
 
 const contacts = [
   {
-    name: 'Enquiries — Line 1',
+    name: 'Enquiries',
     number: '+91 75748 35189',
     href: 'https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions.',
-  },
-  {
-    name: 'Enquiries — Line 2',
-    number: '+91 98254 11864',
-    href: 'https://wa.me/919825411864?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions.',
   },
 ]
 
