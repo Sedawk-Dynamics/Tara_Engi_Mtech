@@ -32,7 +32,10 @@ export const CONTACT = {
     sales: 'sales.taraengimechllp@gmail.com',
   },
 
-  website: { display: 'www.taraengimech.com', href: 'https://taraengimech.com' },
+  website: { display: 'www.taraengimechllp.com', href: 'https://www.taraengimechllp.com' },
+
+  /** Company profile PDF served from /public. */
+  catalogue: { href: '/tara-engimech-profile.pdf', filename: 'TARA-ENGIMECH-Company-Profile.pdf' },
 
   address: {
     lines: ADDRESS_LINES,

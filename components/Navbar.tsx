@@ -6,7 +6,8 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useAnchorNav } from '@/lib/use-anchor-nav'
-import { Menu, X, ChevronDown, ChevronRight, Phone, MessageCircle } from 'lucide-react'
+import { CONTACT } from '@/lib/contact'
+import { Menu, X, ChevronDown, ChevronRight, Phone, MessageCircle, Download } from 'lucide-react'
 
 type ProductCategory = {
   name: string
@@ -139,13 +140,13 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) =>
                 link.hasMenu ? (
                   <div key={link.label} className="relative">
                     <button
                       onClick={() => setMegaOpen(!megaOpen)}
-                      className="group flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#1a2332] transition-colors relative hover:text-[#145795]"
+                      className="group flex items-center gap-1 px-2.5 xl:px-3 py-2 text-sm font-medium whitespace-nowrap text-[#1a2332] transition-colors relative hover:text-[#145795]"
 
                     >
                       {link.label}
@@ -219,7 +220,7 @@ export default function Navbar() {
                   <button
                     key={link.label}
                     onClick={() => handleNavClick(link.href)}
-                    className="group relative px-4 py-2 text-sm font-medium text-[#1a2332] transition-colors hover:text-[#145795]"
+                    className="group relative px-2.5 xl:px-3 py-2 text-sm font-medium whitespace-nowrap text-[#1a2332] transition-colors hover:text-[#145795]"
 
                   >
                     {link.label}
@@ -230,23 +231,32 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2">
+              <a
+                href={CONTACT.catalogue.href}
+                download={CONTACT.catalogue.filename}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#145795]/30 text-sm font-semibold text-[#145795] transition-colors hover:bg-[#145795]/5"
+              >
+                <Download size={16} />
+                <span className="hidden xl:inline">Catalogue</span>
+              </a>
               <a
                 href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-[#25D366] transition-colors hover:bg-green-50"
+                className="hidden xl:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-[#25D366] transition-colors hover:bg-green-50"
 
               >
                 <MessageCircle size={18} />
-                <span className="hidden xl:inline">WhatsApp</span>
+                <span className="hidden 2xl:inline">WhatsApp</span>
               </a>
               <button
                 onClick={() => handleNavClick('#contact')}
-                className="flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+                className="flex items-center gap-2 whitespace-nowrap bg-[#145795] hover:bg-[#0e3f6e] text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 <Phone size={14} />
-                Request a Quote
+                <span className="xl:hidden">Quote</span>
+                <span className="hidden xl:inline">Request a Quote</span>
               </button>
             </div>
 
@@ -339,6 +349,15 @@ export default function Navbar() {
             </nav>
 
             <div className="p-6 border-t border-[#DDE3E8] space-y-3">
+              <a
+                href={CONTACT.catalogue.href}
+                download={CONTACT.catalogue.filename}
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-lg border border-[#145795]/30 text-[#145795] font-semibold hover:bg-[#145795]/5 transition-colors"
+              >
+                <Download size={16} />
+                Download Catalogue
+              </a>
               <a
                 href="tel:+917574835189"
                 className="flex items-center gap-3 p-3 rounded-lg bg-[#F5F7F9] text-[#1a2332] font-medium hover:bg-[#DDE3E8] transition-colors"
