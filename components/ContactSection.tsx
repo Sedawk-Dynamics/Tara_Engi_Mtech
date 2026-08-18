@@ -136,9 +136,9 @@ export default function ContactSection() {
                     <a href="tel:+917574835189" className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors block">
                       +91 75748 35189
                     </a>
-                    <a href="tel:+919825411864" className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors block">
+                    {/* <a href="tel:+919825411864" className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors block">
                       +91 98254 11864
-                    </a>
+                    </a> */}
                   </div>
                 </div>
 

@@ -107,17 +107,15 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-white shadow-lg shadow-black/8 border-b border-[#DDE3E8]'
-            : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#DDE3E8] transition-shadow duration-300 ${
+          scrolled ? 'shadow-lg shadow-black/8' : 'shadow-sm shadow-black/5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" ref={megaRef}>
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-24">
             {/* Logo */}
             <Link
               href="/"
@@ -135,7 +133,7 @@ export default function Navbar() {
                 alt="TARA ENGIMECH LLP - Turning Power Into Flow"
                 width={200}
                 height={70}
-                className="h-14 w-auto object-contain"
+                className="h-[72px] w-auto object-contain"
                 priority
               />
             </Link>
@@ -147,9 +145,8 @@ export default function Navbar() {
                   <div key={link.label} className="relative">
                     <button
                       onClick={() => setMegaOpen(!megaOpen)}
-                      className={`group flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors relative ${
-                        scrolled ? 'text-[#1a2332]' : 'text-white'
-                      } hover:text-[#145795]`}
+                      className="group flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#1a2332] transition-colors relative hover:text-[#145795]"
+
                     >
                       {link.label}
                       <ChevronDown
@@ -222,9 +219,8 @@ export default function Navbar() {
                   <button
                     key={link.label}
                     onClick={() => handleNavClick(link.href)}
-                    className={`group relative px-4 py-2 text-sm font-medium transition-colors ${
-                      scrolled ? 'text-[#1a2332]' : 'text-white'
-                    } hover:text-[#145795]`}
+                    className="group relative px-4 py-2 text-sm font-medium text-[#1a2332] transition-colors hover:text-[#145795]"
+
                   >
                     {link.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#145795] group-hover:w-full transition-all duration-300" />
@@ -239,11 +235,8 @@ export default function Navbar() {
                 href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  scrolled
-                    ? 'text-[#25D366] hover:bg-green-50'
-                    : 'text-white hover:text-[#25D366]'
-                }`}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-[#25D366] transition-colors hover:bg-green-50"
+
               >
                 <MessageCircle size={18} />
                 <span className="hidden xl:inline">WhatsApp</span>
@@ -260,9 +253,8 @@ export default function Navbar() {
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`lg:hidden p-2 rounded-lg transition-colors ${
-                scrolled ? 'text-[#1a2332] hover:bg-gray-100' : 'text-white hover:bg-white/10'
-              }`}
+              className="lg:hidden p-2 rounded-lg text-[#1a2332] transition-colors hover:bg-gray-100"
+
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
