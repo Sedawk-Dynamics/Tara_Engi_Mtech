@@ -13,13 +13,26 @@ const ADDRESS_LINES = [
   'Gujarat 382418, India',
 ]
 
+/**
+ * Both numbers take calls. WhatsApp runs on the first number only — the
+ * second is call-only, so never build a wa.me link from it.
+ */
+const PHONES = [
+  { display: '+91 75748 35189', tel: '+917574835189' },
+  { display: '+91 98254 11864', tel: '+919825411864' },
+]
+
 const ENQUIRY_TEXT =
   'Hello TARA ENGIMECH LLP, I would like to enquire about your pumping solutions.'
 
 export const CONTACT = {
   company: 'TARA ENGIMECH LLP',
 
-  phone: { display: '+91 75748 35189', tel: '+917574835189' },
+  /** Every number that takes calls, in the order they should be listed. */
+  phones: PHONES,
+
+  /** Single-action CTAs ("Call Now", the mobile bar) use this one. */
+  phone: PHONES[0],
 
   whatsapp: {
     display: '+91 75748 35189',

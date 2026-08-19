@@ -134,9 +134,15 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="text-xs text-[#586670] mb-1 font-medium">Phone</p>
-                    <a href="tel:+917574835189" className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors block">
-                      +91 75748 35189
-                    </a>
+                    {CONTACT.phones.map((phone) => (
+                      <a
+                        key={phone.tel}
+                        href={`tel:${phone.tel}`}
+                        className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors block"
+                      >
+                        {phone.display}
+                      </a>
+                    ))}
                   </div>
                 </div>
 

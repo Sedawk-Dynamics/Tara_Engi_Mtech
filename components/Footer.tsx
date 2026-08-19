@@ -210,13 +210,20 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a
-                  href="tel:+917574835189"
-                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors group"
-                >
+                <div className="flex items-start gap-3 text-sm text-gray-400">
                   <Phone size={15} className="mt-0.5 text-[#145795] flex-shrink-0" />
-                  <span>{CONTACT.phone.display}</span>
-                </a>
+                  <div className="space-y-1">
+                    {CONTACT.phones.map((phone) => (
+                      <a
+                        key={phone.tel}
+                        href={`tel:${phone.tel}`}
+                        className="block hover:text-white transition-colors"
+                      >
+                        {phone.display}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-sm text-gray-400">
