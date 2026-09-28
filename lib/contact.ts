@@ -43,6 +43,7 @@ export const CONTACT = {
     /** Enquiry CTAs and the contact-form fallback use this one. */
     primary: 'taraengimechllp@gmail.com',
     sales: 'sales.taraengimechllp@gmail.com',
+    info: 'Info@taraengimechllp.com',
   },
 
   website: { display: 'www.taraengimechllp.com', href: 'https://www.taraengimechllp.com' },

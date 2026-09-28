@@ -241,6 +241,12 @@ export default function Footer() {
                     >
                       {CONTACT.emails.sales}
                     </a>
+                    <a
+                      href={`mailto:${CONTACT.emails.info}`}
+                      className="block break-all hover:text-white transition-colors"
+                    >
+                      {CONTACT.emails.info}
+                    </a>
                   </div>
                 </div>
               </li>

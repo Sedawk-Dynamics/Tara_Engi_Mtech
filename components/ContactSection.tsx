@@ -181,6 +181,12 @@ export default function ContactSection() {
                     >
                       {CONTACT.emails.sales}
                     </a>
+                    <a
+                      href={`mailto:${CONTACT.emails.info}`}
+                      className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors break-all block"
+                    >
+                      {CONTACT.emails.info}
+                    </a>
                   </div>
                 </div>
 
