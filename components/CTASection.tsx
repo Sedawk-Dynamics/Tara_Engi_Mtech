@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ArrowRight, MessageCircle } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 function FluidLines() {
   return (
@@ -113,7 +114,7 @@ export default function CTASection() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bb5a] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 shadow-xl w-full sm:w-auto justify-center"
             >
-              <MessageCircle size={16} />
+              <WhatsAppIcon size={16} />
               WhatsApp Us
             </a>
           </div>

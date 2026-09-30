@@ -7,7 +7,6 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import {
   ChevronRight,
   Phone,
-  MessageCircle,
   Mail,
   Download,
   CheckCircle2,
@@ -19,6 +18,7 @@ import {
   ChevronDown,
   X,
 } from 'lucide-react'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
@@ -507,7 +507,7 @@ function PumpCard({ pump, index }: { pump: (typeof pumps)[0]; index: number }) {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#145795] text-white text-sm font-semibold hover:bg-[#0e3f6e] transition-colors"
                 >
-                  <MessageCircle size={15} />
+                  <WhatsAppIcon size={15} />
                   Enquire About {pump.model}
                 </a>
               </div>
@@ -608,7 +608,7 @@ export default function CentrifugalProcessPumpsPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-colors backdrop-blur-sm"
                 >
-                  <MessageCircle size={16} />
+                  <WhatsAppIcon size={16} />
                   Request a Quote
                 </a>
               </div>
@@ -819,7 +819,7 @@ export default function CentrifugalProcessPumpsPage() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bb5a] text-white font-bold px-8 py-4 rounded-xl transition-colors shadow-lg"
                 >
-                  <MessageCircle size={18} />
+                  <WhatsAppIcon size={18} />
                   WhatsApp Enquiry
                 </a>
                 <a

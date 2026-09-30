@@ -7,7 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useAnchorNav } from '@/lib/use-anchor-nav'
 import { CONTACT } from '@/lib/contact'
-import { Menu, X, ChevronDown, ChevronRight, Phone, MessageCircle, Download } from 'lucide-react'
+import { Menu, X, ChevronDown, ChevronRight, Phone, Download } from 'lucide-react'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 type ProductCategory = {
   name: string
@@ -115,7 +116,7 @@ export default function Navbar() {
           scrolled ? 'shadow-lg shadow-black/8' : 'shadow-sm shadow-black/5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" ref={megaRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-8 relative" ref={megaRef}>
           <div className="flex items-center justify-between h-24">
             {/* Logo */}
             <Link
@@ -146,7 +147,7 @@ export default function Navbar() {
                   <div key={link.label} className="relative">
                     <button
                       onClick={() => setMegaOpen(!megaOpen)}
-                      className="group flex items-center gap-1 px-2.5 xl:px-3 py-2 text-sm font-medium whitespace-nowrap text-[#1a2332] transition-colors relative hover:text-[#145795]"
+                      className="group flex items-center gap-1 px-2 xl:px-3 py-2 text-sm font-medium whitespace-nowrap text-[#1a2332] transition-colors relative hover:text-[#145795]"
 
                     >
                       {link.label}
@@ -220,7 +221,7 @@ export default function Navbar() {
                   <button
                     key={link.label}
                     onClick={() => handleNavClick(link.href)}
-                    className="group relative px-2.5 xl:px-3 py-2 text-sm font-medium whitespace-nowrap text-[#1a2332] transition-colors hover:text-[#145795]"
+                    className="group relative px-2 xl:px-3 py-2 text-sm font-medium whitespace-nowrap text-[#1a2332] transition-colors hover:text-[#145795]"
 
                   >
                     {link.label}
@@ -233,12 +234,12 @@ export default function Navbar() {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-2">
               <a
-                href={CONTACT.catalogue.href}
-                download={CONTACT.catalogue.filename}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#145795]/30 text-sm font-semibold text-[#145795] transition-colors hover:bg-[#145795]/5"
+                href={CONTACT.brochure.href}
+                download={CONTACT.brochure.filename}
+                className="flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg border border-[#145795]/30 text-sm font-semibold text-[#145795] transition-colors hover:bg-[#145795]/5"
               >
                 <Download size={16} />
-                <span className="hidden xl:inline">Catalogue</span>
+                Brochure
               </a>
               <a
                 href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
@@ -247,14 +248,14 @@ export default function Navbar() {
                 className="hidden xl:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-[#25D366] transition-colors hover:bg-green-50"
 
               >
-                <MessageCircle size={18} />
+                <WhatsAppIcon size={18} />
                 <span className="hidden 2xl:inline">WhatsApp</span>
               </a>
               <button
                 onClick={() => handleNavClick('#contact')}
                 className="flex items-center gap-2 whitespace-nowrap bg-[#145795] hover:bg-[#0e3f6e] text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
               >
-                <Phone size={14} />
+                <Phone size={14} className="hidden xl:block" />
                 <span className="xl:hidden">Quote</span>
                 <span className="hidden xl:inline">Request a Quote</span>
               </button>
@@ -350,13 +351,13 @@ export default function Navbar() {
 
             <div className="p-6 border-t border-[#DDE3E8] space-y-3">
               <a
-                href={CONTACT.catalogue.href}
-                download={CONTACT.catalogue.filename}
+                href={CONTACT.brochure.href}
+                download={CONTACT.brochure.filename}
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-lg border border-[#145795]/30 text-[#145795] font-semibold hover:bg-[#145795]/5 transition-colors"
               >
                 <Download size={16} />
-                Download Catalogue
+                Download Brochure
               </a>
               <a
                 href="tel:+917574835189"
@@ -371,7 +372,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#25D366] text-white font-semibold hover:bg-[#20bb5a] transition-colors"
               >
-                <MessageCircle size={16} />
+                <WhatsAppIcon size={16} />
                 WhatsApp Us
               </a>
               <button

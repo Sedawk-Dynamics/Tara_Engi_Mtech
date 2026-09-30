@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import { CONTACT } from '@/lib/contact'
 import { motion } from 'framer-motion'
-import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle, AlertCircle, Globe } from 'lucide-react'
+import { Phone, Mail, MapPin, Send, CheckCircle, AlertCircle, Globe } from 'lucide-react'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 const productOptions = [
   'External Gear Pumps',
@@ -148,7 +149,7 @@ export default function ContactSection() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-[#145795]/10 border border-[#145795]/20 flex items-center justify-center flex-shrink-0">
-                    <MessageCircle size={16} className="text-[#25D366]" />
+                    <WhatsAppIcon size={16} className="text-[#25D366]" />
                   </div>
                   <div>
                     <p className="text-xs text-[#586670] mb-1 font-medium">WhatsApp</p>
@@ -169,24 +170,15 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="text-xs text-[#586670] mb-1 font-medium">Email</p>
-                    <a
-                      href={`mailto:${CONTACT.emails.primary}`}
-                      className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors break-all block"
-                    >
-                      {CONTACT.emails.primary}
-                    </a>
-                    <a
-                      href={`mailto:${CONTACT.emails.sales}`}
-                      className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors break-all block"
-                    >
-                      {CONTACT.emails.sales}
-                    </a>
-                    <a
-                      href={`mailto:${CONTACT.emails.info}`}
-                      className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors break-all block"
-                    >
-                      {CONTACT.emails.info}
-                    </a>
+                    {CONTACT.emailList.map((email) => (
+                      <a
+                        key={email}
+                        href={`mailto:${email}`}
+                        className="text-sm font-bold text-[#1a2332] hover:text-[#145795] transition-colors break-all block"
+                      >
+                        {email}
+                      </a>
+                    ))}
                   </div>
                 </div>
 
@@ -238,7 +230,7 @@ export default function ContactSection() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 bg-[#25D366] text-white rounded-lg text-sm font-semibold hover:bg-[#20bb5a] transition-colors"
                 >
-                  <MessageCircle size={16} />
+                  <WhatsAppIcon size={16} />
                   Chat: +91 75748 35189
                 </a>
               </div>

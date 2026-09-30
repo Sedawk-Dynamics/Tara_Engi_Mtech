@@ -7,7 +7,6 @@ import { motion, useInView } from 'framer-motion'
 import {
   ChevronRight,
   ArrowRight,
-  MessageCircle,
   CheckCircle2,
   Mail,
   Shield,
@@ -16,6 +15,7 @@ import {
   Droplets,
   Flame,
 } from 'lucide-react'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
@@ -124,7 +124,7 @@ export default function ProductCategoryIndex({ category }: { category: ProductCa
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-colors backdrop-blur-sm"
                 >
-                  <MessageCircle size={16} />
+                  <WhatsAppIcon size={16} />
                   Request a Quote
                 </a>
               </div>

@@ -6,7 +6,8 @@ import { CONTACT } from '@/lib/contact'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Phone, Mail, MessageCircle, MapPin, ArrowRight, Globe } from 'lucide-react'
+import { Phone, Mail, MapPin, ArrowRight, Globe } from 'lucide-react'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 // Inline SVG icons for social platforms not available in lucide-react@1.17
 function LinkedinIcon({ size = 15 }: { size?: number }) {
@@ -100,7 +101,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 rounded-lg bg-[#25D366] text-white font-semibold hover:bg-[#20bb5a] transition-colors"
               >
-                <MessageCircle size={16} />
+                <WhatsAppIcon size={16} />
                 WhatsApp Us
               </a>
               <button
@@ -229,24 +230,15 @@ export default function Footer() {
                 <div className="flex items-start gap-3 text-sm text-gray-400">
                   <Mail size={15} className="mt-0.5 text-[#145795] flex-shrink-0" />
                   <div className="space-y-1">
-                    <a
-                      href={`mailto:${CONTACT.emails.primary}`}
-                      className="block break-all hover:text-white transition-colors"
-                    >
-                      {CONTACT.emails.primary}
-                    </a>
-                    <a
-                      href={`mailto:${CONTACT.emails.sales}`}
-                      className="block break-all hover:text-white transition-colors"
-                    >
-                      {CONTACT.emails.sales}
-                    </a>
-                    <a
-                      href={`mailto:${CONTACT.emails.info}`}
-                      className="block break-all hover:text-white transition-colors"
-                    >
-                      {CONTACT.emails.info}
-                    </a>
+                    {CONTACT.emailList.map((email) => (
+                      <a
+                        key={email}
+                        href={`mailto:${email}`}
+                        className="block break-all hover:text-white transition-colors"
+                      >
+                        {email}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </li>
@@ -284,7 +276,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-[#25D366] hover:text-green-400 transition-colors"
               >
-                <MessageCircle size={14} />
+                <WhatsAppIcon size={14} />
                 WhatsApp: +91 75748 35189
               </a>
             </div>
@@ -295,12 +287,18 @@ export default function Footer() {
       {/* Industries strip */}
       <div className="border-t border-white/10 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <span className="text-xs text-gray-500 uppercase tracking-widest font-semibold">Industries:</span>
+          {/* Phones get a two-column list: the inline strip wraps mid-row there and leaves dangling separators. */}
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
+            <span className="col-span-2 mb-1 text-xs text-gray-500 uppercase tracking-widest font-semibold sm:mb-0">
+              Industries:
+            </span>
             {industries.map((ind, i) => (
-              <span key={ind} className="text-xs text-gray-400">
+              <span key={ind} className="flex items-center gap-2 text-xs text-gray-400">
+                <span className="h-1 w-1 shrink-0 rounded-full bg-brand-blue sm:hidden" aria-hidden="true" />
                 {ind}
-                {i < industries.length - 1 && <span className="ml-6 text-gray-600">|</span>}
+                {i < industries.length - 1 && (
+                  <span className="ml-4 hidden text-gray-600 sm:inline">|</span>
+                )}
               </span>
             ))}
           </div>

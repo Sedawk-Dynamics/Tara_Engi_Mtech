@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, X, Phone } from 'lucide-react'
+import { X, Phone } from 'lucide-react'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 const contacts = [
   {
@@ -32,7 +33,7 @@ export default function WhatsAppFloat() {
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-[#25D366] text-white font-bold text-sm"
         >
-          <MessageCircle size={18} />
+          <WhatsAppIcon size={18} />
           WhatsApp
         </a>
       </div>
@@ -50,7 +51,7 @@ export default function WhatsAppFloat() {
             >
               <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#DDE3E8]">
                 <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center">
-                  <MessageCircle size={20} className="text-white" />
+                  <WhatsAppIcon size={20} className="text-white" />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-[#1a2332]">TARA ENGIMECH LLP</p>
@@ -72,7 +73,7 @@ export default function WhatsAppFloat() {
                     className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F7F9] hover:bg-[#25D366]/10 border border-[#DDE3E8] hover:border-[#25D366]/30 transition-all group"
                   >
                     <div className="w-8 h-8 rounded-full bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center flex-shrink-0">
-                      <MessageCircle size={14} className="text-[#25D366]" />
+                      <WhatsAppIcon size={14} className="text-[#25D366]" />
                     </div>
                     <div>
                       <p className="text-xs font-bold text-[#1a2332] group-hover:text-[#25D366] transition-colors">
@@ -114,7 +115,7 @@ export default function WhatsAppFloat() {
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.15 }}
               >
-                <MessageCircle size={22} />
+                <WhatsAppIcon size={22} />
               </motion.div>
             )}
           </AnimatePresence>

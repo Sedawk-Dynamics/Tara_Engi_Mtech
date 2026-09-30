@@ -9,10 +9,10 @@ import {
   CheckCircle2,
   ArrowRight,
   ArrowLeft,
-  MessageCircle,
   Phone,
   Mail,
 } from 'lucide-react'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
@@ -196,7 +196,7 @@ export default function ProductDetail({
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg"
                   >
-                    <MessageCircle size={16} />
+                    <WhatsAppIcon size={16} />
                     Request a Quote
                   </a>
                   <a

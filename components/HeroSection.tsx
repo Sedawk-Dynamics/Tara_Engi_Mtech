@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ChevronLeft, ChevronRight, Phone, MessageCircle } from 'lucide-react'
+import { ArrowRight, ChevronLeft, ChevronRight, Phone } from 'lucide-react'
 
 const slides = [
   {

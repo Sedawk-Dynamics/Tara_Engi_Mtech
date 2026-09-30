@@ -43,13 +43,20 @@ export const CONTACT = {
     /** Enquiry CTAs and the contact-form fallback use this one. */
     primary: 'taraengimechllp@gmail.com',
     sales: 'sales.taraengimechllp@gmail.com',
-    info: 'Info@taraengimechllp.com',
+    info: 'info@taraengimechllp.com',
   },
+
+  /** Every company address, in the order they should be listed. */
+  emailList: [
+    'taraengimechllp@gmail.com',
+    'sales.taraengimechllp@gmail.com',
+    'info@taraengimechllp.com',
+  ],
 
   website: { display: 'www.taraengimechllp.com', href: 'https://www.taraengimechllp.com' },
 
-  /** Company profile PDF served from /public. */
-  catalogue: { href: '/tara-engimech-profile.pdf', filename: 'TARA-ENGIMECH-Company-Profile.pdf' },
+  /** Company brochure PDF served from /public. */
+  brochure: { href: '/tara-engimech-profile.pdf', filename: 'TARA-ENGIMECH-Brochure.pdf' },
 
   address: {
     lines: ADDRESS_LINES,
