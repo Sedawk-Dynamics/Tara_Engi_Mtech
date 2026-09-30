@@ -93,7 +93,7 @@ export default function WhatsAppFloat() {
           onClick={() => setOpen(!open)}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bb5a] text-white shadow-xl shadow-[#25D366]/30 flex items-center justify-center transition-colors"
+          className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white shadow-xl shadow-[#25D366]/30 flex items-center justify-center transition-colors active:bg-[#075E54]"
           aria-label={open ? 'Close WhatsApp chat' : 'Open WhatsApp chat'}
         >
           <AnimatePresence mode="wait">

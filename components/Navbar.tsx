@@ -245,7 +245,7 @@ export default function Navbar() {
                 href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden xl:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-[#25D366] transition-colors hover:bg-green-50"
+                className="hidden xl:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-[#25D366] transition-all hover:bg-[#25D366] hover:text-white active:scale-[0.97]"
 
               >
                 <WhatsAppIcon size={18} />
@@ -253,7 +253,7 @@ export default function Navbar() {
               </a>
               <button
                 onClick={() => handleNavClick('#contact')}
-                className="flex items-center gap-2 whitespace-nowrap bg-[#145795] hover:bg-[#0e3f6e] text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+                className="flex items-center gap-2 whitespace-nowrap bg-[#145795] hover:bg-[#0e3f6e] text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:bg-[#0a2f52] active:scale-[0.97]"
               >
                 <Phone size={14} className="hidden xl:block" />
                 <span className="xl:hidden">Quote</span>
@@ -370,14 +370,14 @@ export default function Navbar() {
                 href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#25D366] text-white font-semibold hover:bg-[#20bb5a] transition-colors"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#25D366] text-white font-semibold hover:bg-[#128C7E] transition-all active:bg-[#075E54] active:scale-[0.97]"
               >
                 <WhatsAppIcon size={16} />
                 WhatsApp Us
               </a>
               <button
                 onClick={() => handleNavClick('#contact')}
-                className="w-full py-3 rounded-lg bg-[#145795] text-white font-semibold hover:bg-[#0e3f6e] transition-colors"
+                className="w-full py-3 rounded-lg bg-[#145795] text-white font-semibold hover:bg-[#0e3f6e] transition-all active:bg-[#0a2f52] active:scale-[0.97]"
               >
                 Request a Quote
               </button>

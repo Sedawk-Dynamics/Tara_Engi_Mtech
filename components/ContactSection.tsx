@@ -228,7 +228,7 @@ export default function ContactSection() {
                   href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-[#25D366] text-white rounded-lg text-sm font-semibold hover:bg-[#20bb5a] transition-colors"
+                  className="flex items-center gap-3 p-3 bg-[#25D366] text-white rounded-lg text-sm font-semibold hover:bg-[#128C7E] transition-all active:bg-[#075E54] active:scale-[0.97]"
                 >
                   <WhatsAppIcon size={16} />
                   Chat: +91 75748 35189
@@ -384,7 +384,7 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full flex items-center justify-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] disabled:bg-[#145795]/60 text-white font-bold py-4 rounded-lg transition-all duration-200 shadow-lg shadow-[#145795]/20 text-sm"
+                    className="w-full flex items-center justify-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] disabled:bg-[#145795]/60 text-white font-bold py-4 rounded-lg transition-all duration-200 shadow-lg shadow-[#145795]/20 text-sm active:bg-[#0a2f52] active:scale-[0.97]"
                   >
                     {status === 'loading' ? (
                       <>

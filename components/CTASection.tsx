@@ -103,7 +103,7 @@ export default function CTASection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => handleScrollTo('#contact')}
-              className="group flex items-center gap-2 bg-white text-[#145795] font-bold px-8 py-4 rounded-lg hover:bg-gray-50 transition-all duration-200 shadow-xl w-full sm:w-auto justify-center"
+              className="group flex items-center gap-2 bg-white text-[#145795] font-bold px-8 py-4 rounded-lg hover:bg-[#0e3f6e] hover:text-white transition-all duration-200 shadow-xl w-full sm:w-auto justify-center active:scale-[0.97]"
             >
               Request a Quote
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -112,7 +112,7 @@ export default function CTASection() {
               href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bb5a] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 shadow-xl w-full sm:w-auto justify-center"
+              className="flex items-center gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 shadow-xl w-full sm:w-auto justify-center active:bg-[#075E54] active:scale-[0.97]"
             >
               <WhatsAppIcon size={16} />
               WhatsApp Us

@@ -99,14 +99,14 @@ export default function Footer() {
                 href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20pumping%20solutions."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-[#25D366] text-white font-semibold hover:bg-[#20bb5a] transition-colors"
+                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-[#25D366] text-white font-semibold hover:bg-[#128C7E] transition-all active:bg-[#075E54] active:scale-[0.97]"
               >
                 <WhatsAppIcon size={16} />
                 WhatsApp Us
               </a>
               <button
                 onClick={() => handleScrollTo('#contact')}
-                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-[#145795] font-semibold hover:bg-gray-100 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-[#145795] font-semibold hover:bg-[#0e3f6e] hover:text-white transition-all active:scale-[0.97]"
               >
                 Request a Quote
                 <ArrowRight size={16} />

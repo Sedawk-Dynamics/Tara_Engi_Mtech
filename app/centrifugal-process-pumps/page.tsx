@@ -505,7 +505,7 @@ function PumpCard({ pump, index }: { pump: (typeof pumps)[0]; index: number }) {
                   href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%2C%20I%20need%20a%20quote%20for%20your%20"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#145795] text-white text-sm font-semibold hover:bg-[#0e3f6e] transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#145795] text-white text-sm font-semibold hover:bg-[#0e3f6e] transition-all active:bg-[#0a2f52] active:scale-[0.97]"
                 >
                   <WhatsAppIcon size={15} />
                   Enquire About {pump.model}
@@ -597,7 +597,7 @@ export default function CentrifugalProcessPumpsPage() {
                     e.preventDefault()
                     document.getElementById('pump-range')?.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg"
+                  className="flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg active:bg-[#0a2f52] active:scale-[0.97]"
                 >
                   Explore All Models
                   <ArrowRight size={16} />
@@ -606,7 +606,7 @@ export default function CentrifugalProcessPumpsPage() {
                   href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%2C%20I%20need%20a%20quote%20for%20Centrifugal%20Process%20Pumps."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-colors backdrop-blur-sm"
+                  className="flex items-center gap-2 bg-white/10 hover:bg-white hover:text-[#145795] hover:border-white border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-all backdrop-blur-sm active:scale-[0.97]"
                 >
                   <WhatsAppIcon size={16} />
                   Request a Quote
@@ -817,21 +817,21 @@ export default function CentrifugalProcessPumpsPage() {
                   href="https://wa.me/917574835189?text=Hello%20TARA%20ENGIMECH%2C%20I%20need%20a%20quote%20for%20Centrifugal%20Process%20Pumps."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bb5a] text-white font-bold px-8 py-4 rounded-xl transition-colors shadow-lg"
+                  className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg active:bg-[#075E54] active:scale-[0.97]"
                 >
                   <WhatsAppIcon size={18} />
                   WhatsApp Enquiry
                 </a>
                 <a
                   href="mailto:taraengimechllp@gmail.com?subject=Centrifugal%20Process%20Pump%20Enquiry"
-                  className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-colors backdrop-blur-sm"
+                  className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white hover:text-[#145795] hover:border-white border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all backdrop-blur-sm active:scale-[0.97]"
                 >
                   <Mail size={18} />
                   Email Enquiry
                 </a>
                 <a
                   href="tel:+917574835189"
-                  className="flex items-center justify-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-bold px-8 py-4 rounded-xl transition-colors"
+                  className="flex items-center justify-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-bold px-8 py-4 rounded-xl transition-all active:bg-[#0a2f52] active:scale-[0.97]"
                 >
                   <Phone size={18} />
                   Call Now

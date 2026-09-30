@@ -282,7 +282,7 @@ export default function ProductsSection() {
           </p>
           <button
             onClick={() => handleScrollTo('#contact')}
-            className="inline-flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 shadow-lg shadow-[#145795]/20"
+            className="inline-flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 shadow-lg shadow-[#145795]/20 active:bg-[#0a2f52] active:scale-[0.97]"
           >
             Discuss Your Requirement
             <ArrowRight size={16} />

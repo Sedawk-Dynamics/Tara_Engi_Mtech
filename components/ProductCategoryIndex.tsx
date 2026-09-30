@@ -113,7 +113,7 @@ export default function ProductCategoryIndex({ category }: { category: ProductCa
               <div className="flex flex-wrap gap-3">
                 <a
                   href="#models"
-                  className="flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg"
+                  className="flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg active:bg-[#0a2f52] active:scale-[0.97]"
                 >
                   Explore All Models
                   <ArrowRight size={16} />
@@ -122,7 +122,7 @@ export default function ProductCategoryIndex({ category }: { category: ProductCa
                   href={quoteLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-colors backdrop-blur-sm"
+                  className="flex items-center gap-2 bg-white/10 hover:bg-white hover:text-[#145795] hover:border-white border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-all backdrop-blur-sm active:scale-[0.97]"
                 >
                   <WhatsAppIcon size={16} />
                   Request a Quote
@@ -313,14 +313,14 @@ export default function ProductCategoryIndex({ category }: { category: ProductCa
               <div className="flex flex-wrap justify-center gap-3">
                 <Link
                   href="/#contact"
-                  className="flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-lg"
+                  className="flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-semibold px-7 py-3.5 rounded-xl transition-all shadow-lg active:bg-[#0a2f52] active:scale-[0.97]"
                 >
                   Send an Enquiry
                   <ArrowRight size={16} />
                 </Link>
                 <a
                   href="mailto:taraengimechllp@gmail.com"
-                  className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors backdrop-blur-sm"
+                  className="flex items-center gap-2 bg-white/10 hover:bg-white hover:text-[#145795] hover:border-white border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl transition-all backdrop-blur-sm active:scale-[0.97]"
                 >
                   <Mail size={16} />
                   Email Us

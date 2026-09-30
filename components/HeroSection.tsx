@@ -228,14 +228,14 @@ export default function HeroSection() {
                 >
                   <button
                     onClick={() => handleScrollTo('#products')}
-                    className="group flex items-center gap-2 bg-[#145795] hover:bg-[#1a6ab5] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 shadow-lg shadow-[#145795]/30 hover:shadow-xl hover:shadow-[#145795]/40"
+                    className="group flex items-center gap-2 bg-[#145795] hover:bg-[#0e3f6e] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 shadow-lg shadow-[#145795]/30 hover:shadow-xl hover:shadow-[#145795]/40 active:bg-[#0a2f52] active:scale-[0.97]"
                   >
                     Explore Our Products
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                   <button
                     onClick={() => handleScrollTo('#contact')}
-                    className="flex items-center gap-2 border-2 border-white/30 hover:border-white/60 text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 backdrop-blur-sm hover:bg-white/5"
+                    className="flex items-center gap-2 border-2 border-white/30 hover:border-white text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 backdrop-blur-sm hover:bg-white hover:text-[#145795] active:scale-[0.97]"
                   >
                     <Phone size={16} />
                     Request a Quote

@@ -139,7 +139,7 @@ export default function AboutSection() {
 
             <button
               onClick={() => handleScrollTo('#contact')}
-              className="group inline-flex items-center gap-3 bg-[#145795] hover:bg-[#0e3f6e] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 shadow-lg shadow-[#145795]/20"
+              className="group inline-flex items-center gap-3 bg-[#145795] hover:bg-[#0e3f6e] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 shadow-lg shadow-[#145795]/20 active:bg-[#0a2f52] active:scale-[0.97]"
             >
               Discover Our Company
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
