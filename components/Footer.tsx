@@ -287,17 +287,21 @@ export default function Footer() {
       {/* Industries strip */}
       <div className="border-t border-white/10 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Phones get a two-column list: the inline strip wraps mid-row there and leaves dangling separators. */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
-            <span className="col-span-2 mb-1 text-xs text-gray-500 uppercase tracking-widest font-semibold sm:mb-0">
+          {/*
+            Below xl the inline strip can't fit on one row, and wrapping it leaves
+            dangling "|" separators — so phones, tablets and landscape phones get
+            a column list, and the strip only appears where it fits on one line.
+          */}
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-3 md:grid-cols-4 xl:flex xl:flex-nowrap xl:items-center xl:gap-x-6">
+            <span className="col-span-full mb-1 text-xs text-gray-500 uppercase tracking-widest font-semibold xl:mb-0">
               Industries:
             </span>
             {industries.map((ind, i) => (
-              <span key={ind} className="flex items-center gap-2 text-xs text-gray-400">
-                <span className="h-1 w-1 shrink-0 rounded-full bg-brand-blue sm:hidden" aria-hidden="true" />
+              <span key={ind} className="flex items-center gap-2 whitespace-nowrap text-xs text-gray-400">
+                <span className="h-1 w-1 shrink-0 rounded-full bg-brand-blue xl:hidden" aria-hidden="true" />
                 {ind}
                 {i < industries.length - 1 && (
-                  <span className="ml-4 hidden text-gray-600 sm:inline">|</span>
+                  <span className="ml-4 hidden text-gray-600 xl:inline">|</span>
                 )}
               </span>
             ))}
