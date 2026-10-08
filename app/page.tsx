@@ -15,6 +15,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
+      
       <main>
         <HeroSection />
         <AboutSection />
